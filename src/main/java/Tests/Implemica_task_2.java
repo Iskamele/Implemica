@@ -42,12 +42,11 @@ public class Implemica_task_2 {
 
     // сity pair acceptance method for path computation
     public static String taskCityNames() {
-        System.out.println("From where to where: ");
-        String userEnter = new Scanner(System.in).nextLine();
+         System.out.println("From where to where: ");
 
-        //TODO validation
+         //TODO validation
 
-        return userEnter;
+        return new Scanner(System.in).nextLine();
     }
 
 
@@ -63,52 +62,55 @@ public class Implemica_task_2 {
 
         // splitting an array into pieces
         String[] words = userEnter.split(" ");
-        int[] values = {Integer.parseInt(words[0]), Integer.parseInt(words[1])};
 
         //TODO validation
 
-        return values;
+        return new int[]{Integer.parseInt(words[0]), Integer.parseInt(words[1])};
     }
 
     // getting input
     public static void main(String[] args) {
 
+        // tests
         s = getCount("Number of tests: ", 10);
+        for (int test = 0; test < s; test++) {
 
-        // getting the number of cities and initializing the adjacency matrix
-        for (int t = 0; t < s; t++) {
-            vNum = getCount("Number of cities: ", 10000);
-            HashMap<String, Integer> citiesMap = new HashMap<>();
-            graph = new int[vNum][vNum];
+            // getting the number of cities and initializing the adjacency matrix
+            for (int t = 0; t < s; t++) {
+                vNum = getCount("Number of cities: ", 10000);
+                HashMap<String, Integer> citiesMap = new HashMap<>();
+                graph = new int[vNum][vNum];
 
-            // filling adjacency matrix with INF value
-            for (int i = 0; i < vNum; i++) {
-                fill(graph[i], INF);
-            }
-
-            // adding city names to hashmap
-            for (int indexCity = 0; indexCity < vNum; indexCity++) {
-                citiesMap.put(cityName("City name: "), indexCity);
-                int neighbor = getCount("His number of neighbors: ", vNum);
-
-                // filling the adjacency matrix with links and costs
-                for (int neighborIterator = 0; neighborIterator < neighbor; neighborIterator++) {
-                    int[] link = connection_cost(); // example input: 1 10
-                    graph[indexCity][link[0] - 1] = link[1]; // -1 for not getting ArrayIndexOutOfBoundsException
+                // filling adjacency matrix with INF value
+                for (int i = 0; i < vNum; i++) {
+                    fill(graph[i], INF);
                 }
-            }
 
-            // getting a task and splitting it into parts
-            int taskCount = getCount("Number of cities searched: ", 100);
-            String[] split = new String[taskCount];
-            for (int i = 0; i < taskCount; i++) {
-                split[i] = taskCityNames();
-            }
+                // adding city names to hashmap
+                for (int indexCity = 0; indexCity < vNum; indexCity++) {
+                    citiesMap.put(cityName("City name: "), indexCity);
+                    int neighbor = getCount("His number of neighbors: ", vNum);
 
-            // start solution
-            for (int i = 0; i < taskCount; i++) {
-                String[] words = split[i].split(" ");
-                solution(citiesMap.get(words[0]), citiesMap.get(words[1]));
+                    // filling the adjacency matrix with links and costs
+                    for (int neighborIterator = 0; neighborIterator < neighbor; neighborIterator++) {
+                        int[] link = connection_cost(); // example input: 1 10
+                        graph[indexCity][link[0] - 1] = link[1]; // -1 for not getting ArrayIndexOutOfBoundsException
+                    }
+                }
+
+                // getting a task and splitting it into parts
+                int taskCount = getCount("Number of cities searched: ", 100);
+                String[] split = new String[taskCount];
+                for (int i = 0; i < taskCount; i++) {
+                    split[i] = taskCityNames();
+                }
+
+                // start solution
+                for (int i = 0; i < taskCount; i++) {
+                    String[] words = split[i].split(" ");
+                    solution(citiesMap.get(words[0]), citiesMap.get(words[1]));
+                }
+                System.out.println();
             }
         }
     }
