@@ -1,27 +1,16 @@
 package Tests;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Implemica_task_1 {
     public static void main(String[] args) {
+
         System.out.println("Enter a mathematical expression containing \"(\" and \")\": ");
         Implemica_task_1.validParentheses(new Scanner(System.in).nextLine());
+}
 
-        // tests
-        /*
-        validParentheses("()"); //1
-        validParentheses(")(()))"); //failed
-        validParentheses("))(("); //failed
-        validParentheses("("); //failed
-        validParentheses("(())((()())())"); //7
-        validParentheses("({)[}"); //1
-        validParentheses("(quad(far quad) Farquad)"); //2
-        validParentheses("quadfar quad Farquad"); //0
-        */
-    }
-
-    public static int validParentheses(String parens) {
-
+    public static Optional<Integer> validParentheses(String parens) {
         int check = 0; // a variable that will be an indicator of compliance with the conditions of the task
         int amount = 0; // number of correct bracket expressions
 
@@ -31,8 +20,8 @@ public class Implemica_task_1 {
 
             // check if the bracket expression starts with ")"
             if (check < 0) {
-                System.out.println("Correct bracket expressions 0");
-                return amount;
+                amount--;
+                break;
             }
 
             if (parens.charAt(i) == '(') { // when finding "(", increase the counter by 1
@@ -45,12 +34,12 @@ public class Implemica_task_1 {
 
         // check if all bracket expressions have been closed
         if (check != 0) {
-            System.out.println("Correct bracket expressions 0");
-            return amount;
+            System.out.println("The bracket expression is incorrect");
+            return Optional.empty();
         }
 
         // we return the answer
         System.out.println("Number of correct expressions: " + amount);
-        return amount;
+        return Optional.of(amount);
     }
 }
