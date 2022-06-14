@@ -11,6 +11,7 @@ public class ImplemicaTask1 {
 
     //start
     public static void main(String[] args) {
+        System.out.println("Enter number: ");
 
         int n = new Scanner(System.in).nextInt();
 
