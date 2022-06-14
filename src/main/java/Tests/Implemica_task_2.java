@@ -28,7 +28,7 @@ public class Implemica_task_2 {
     }
 
     // сity name receiving method
-    public static String cityName(String question) {
+    public static String getCityName(String question) {
         System.out.println(question);
         String userEnter = new Scanner(System.in).nextLine();
 
@@ -41,16 +41,16 @@ public class Implemica_task_2 {
     }
 
     // сity pair acceptance method for path computation
-    public static String taskCityNames() {
-         System.out.println("From where to where: ");
+    public static String getCityPair() {
+        System.out.println("From where to where: ");
 
-         //TODO validation
+        //TODO validation
 
         return new Scanner(System.in).nextLine();
     }
 
 
-    public static int[] connection_cost() {
+    public static int[] getCityConnection() {
         System.out.println("City index and cost: ");
         String userEnter = new Scanner(System.in).nextLine();
 
@@ -71,13 +71,17 @@ public class Implemica_task_2 {
     // getting input
     public static void main(String[] args) {
 
+        int testLimit = 10;
+        int citiesLimit = 10000;
+        int taskLimit = 100;
+
         // tests
-        s = getCount("Number of tests: ", 10);
+        s = getCount("Number of tests: ", testLimit);
         for (int test = 0; test < s; test++) {
 
             // getting the number of cities and initializing the adjacency matrix
             for (int t = 0; t < s; t++) {
-                vNum = getCount("Number of cities: ", 10000);
+                vNum = getCount("Number of cities: ", citiesLimit);
                 HashMap<String, Integer> citiesMap = new HashMap<>();
                 graph = new int[vNum][vNum];
 
@@ -88,21 +92,21 @@ public class Implemica_task_2 {
 
                 // adding city names to hashmap
                 for (int indexCity = 0; indexCity < vNum; indexCity++) {
-                    citiesMap.put(cityName("City name: "), indexCity);
-                    int neighbor = getCount("His number of neighbors: ", vNum);
+                    citiesMap.put(getCityName("City name: "), indexCity);
+                    int neighbor = getCount("His number of neighbors: ", vNum -1);
 
                     // filling the adjacency matrix with links and costs
                     for (int neighborIterator = 0; neighborIterator < neighbor; neighborIterator++) {
-                        int[] link = connection_cost(); // example input: 1 10
+                        int[] link = getCityConnection(); // example input: 1 10
                         graph[indexCity][link[0] - 1] = link[1]; // -1 for not getting ArrayIndexOutOfBoundsException
                     }
                 }
 
                 // getting a task and splitting it into parts
-                int taskCount = getCount("Number of cities searched: ", 100);
+                int taskCount = getCount("Number of cities searched: ", taskLimit);
                 String[] split = new String[taskCount];
                 for (int i = 0; i < taskCount; i++) {
-                    split[i] = taskCityNames();
+                    split[i] = getCityPair();
                 }
 
                 // start solution
@@ -128,16 +132,25 @@ public class Implemica_task_2 {
         // for the initial vertex we put 0
         dist[start] = 0;
 
-        for (; ; ) {
+        while (true) {
             int v = -1;
-            for (int nv = 0; nv < vNum; nv++) // iterate over the vertices
-                if (!used[nv] && dist[nv] < INF && (v == -1 || dist[v] > dist[nv])) // select the closest unallocated vertex
+
+            for (int nv = 0; nv < vNum; nv++) { // iterate over the vertices
+                if (!used[nv] && dist[nv] < INF && (v == -1 || dist[v] > dist[nv])) { // select the closest unallocated vertex
                     v = nv;
-            if (v == -1) break; // nearest vertex not found
+                }
+            }
+            if (v == -1) {
+                break;
+            } // nearest vertex not found
+
             used[v] = true; // mark it
-            for (int nv = 0; nv < vNum; nv++)
-                if (!used[nv] && graph[v][nv] < INF) // for all unlabeled contiguous
+
+            for (int nv = 0; nv < vNum; nv++) {
+                if (!used[nv] && graph[v][nv] < INF) {// for all unlabeled contiguous
                     dist[nv] = min(dist[nv], dist[v] + graph[v][nv]); // improve feedback
+                }
+            }
         }
         System.out.println(dist[finish]);
     }
