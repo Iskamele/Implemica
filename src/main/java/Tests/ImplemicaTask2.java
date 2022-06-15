@@ -15,18 +15,28 @@ public class ImplemicaTask2 {
     static int INF = 200000; // infinity
     static int[][] graph; // adjacency matrix
     static int verticesNumber; // number of vertices
-    static int s; // number of tests
+    static int tests; // number of tests
 
     // quantity receiving method with limit parameter
     public static int getCount(String getCountQuestion, int limit) {
         System.out.println(getCountQuestion);
-        int value = new Scanner(System.in).nextInt();
+        int value;
 
-        while (value > limit) {
-            System.out.println("Limit is exceeded! Enter value >= " + limit + ": ");
-            value = new Scanner(System.in).nextInt();
+        // value > limit
+        while (true) {
+            String userEnter = new Scanner(System.in).nextLine();
+            if (!userEnter.matches("(^[1-9])([0-9]+)?")) {
+                System.out.printf("Enter a value from 1 to  %s\n", limit);
+                continue;
+            }
+
+            value = Integer.parseInt(userEnter);
+
+            if (value <= limit) {
+                break;
+            }
+            System.out.printf("Limit exceeded, enter a value from 1 to  %s\n", limit);
         }
-
         return value;
     }
 
@@ -75,11 +85,11 @@ public class ImplemicaTask2 {
         int taskLimit = 100;
 
         // tests
-        s = getCount("Number of tests: ", testLimit);
-        for (int test = 0; test < s; test++) {
+        tests = getCount("Number of tests: ", testLimit);
+        for (int test = 0; test < tests; test++) {
 
             // getting the number of cities and initializing the adjacency matrix
-            for (int t = 0; t < s; t++) {
+            for (int t = 0; t < tests; t++) {
                 verticesNumber = getCount("Number of cities: ", citiesLimit);
                 HashMap<String, Integer> citiesMap = new HashMap<>();
                 graph = new int[verticesNumber][verticesNumber];

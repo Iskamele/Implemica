@@ -23,7 +23,7 @@ public class ImplemicaTask1 {
     }
 
     // Print all combinations of balanced brackets and store the number of "(" and ")"
-    static void _printParenthesis(char str[], int pos, int n, int open, int close) {
+    static void combinations(char str[], int pos, int n, int open, int close) {
 
         if (close == n) {
 
@@ -37,14 +37,12 @@ public class ImplemicaTask1 {
 
             if (open > close) {
                 str[pos] = ')';
-                _printParenthesis(str, pos + 1, n, open,
-                        close + 1);
+                combinations(str, pos + 1, n, open, close + 1);
             }
 
             if (open < n) {
                 str[pos] = '(';
-                _printParenthesis(str, pos + 1, n, open + 1,
-                        close);
+                combinations(str, pos + 1, n, open + 1, close);
             }
         }
     }
@@ -53,12 +51,12 @@ public class ImplemicaTask1 {
     static void printParenthesis(char str[], int n) {
 
         if (n > 0)
-            _printParenthesis(str, 0, n, 0, 0);
+            combinations(str, 0, n, 0, 0);
         return;
     }
 
     // walculate the number of correct bracket expressions. The result of the work is called Catalan numbers
-    private static int solution(int n) {
+    public static int solution(int n) {
 
         if (n == 0)
             return 1;
