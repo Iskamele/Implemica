@@ -3,7 +3,6 @@ package Tests.CorrectBracketExpression.impl;
 import Tests.CorrectBracketExpression.service.CatalanNumbersService;
 
 public class CatalanNumbersServiceImpl implements CatalanNumbersService {
-
     @Override
     public int getNumber(int number) {
         if (number == 0)

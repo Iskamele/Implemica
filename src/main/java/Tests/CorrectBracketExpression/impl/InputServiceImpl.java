@@ -4,7 +4,6 @@ import java.util.Scanner;
 import Tests.CorrectBracketExpression.service.InputService;
 
 public class InputServiceImpl implements InputService {
-
     private final Scanner scanner;
 
     public InputServiceImpl() {
