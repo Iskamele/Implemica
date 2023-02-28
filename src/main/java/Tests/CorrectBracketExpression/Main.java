@@ -14,13 +14,13 @@ public class Main {
         BracketCombinationsService combinationsService = new BracketCombinationsServiceImpl();
         CatalanNumbersService catalanNumbersService = new CatalanNumbersServiceImpl();
 
-        int n = inputService.readInt();
+        int number = inputService.readInt();
 
-        List<String> combinations = combinationsService.getCombinations(n);
+        List<String> combinations = combinationsService.getCombinations(number);
         System.out.println("Combinations: ");
         combinations.forEach(System.out::println);
 
-        int catalanNumber = catalanNumbersService.getNumber(n);
-        System.out.println("Number of correct bracket expressions for " + n + " = " + catalanNumber);
+        int catalanNumber = catalanNumbersService.getNumber(number);
+        System.out.println("Number of correct bracket expressions for " + number + " = " + catalanNumber);
     }
 }
