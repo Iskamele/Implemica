@@ -1,4 +1,4 @@
-package Tests.Outdate;
+package implemica.Outdate;
 
 import java.util.Scanner;
 

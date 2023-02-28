@@ -1,7 +1,7 @@
-package Tests.SumOfDigitsInFactorial.impl;
+package implemica.SumOfDigitsInFactorial.impl;
 
 import java.math.BigInteger;
-import Tests.SumOfDigitsInFactorial.service.Factorial;
+import implemica.SumOfDigitsInFactorial.service.Factorial;
 
 public class FactorialImpl implements Factorial {
     @Override

@@ -1,6 +1,6 @@
-package Tests.CorrectBracketExpression.impl;
+package implemica.CorrectBracketExpression.impl;
 
-import Tests.CorrectBracketExpression.service.CatalanNumbersService;
+import implemica.CorrectBracketExpression.service.CatalanNumbersService;
 
 public class CatalanNumbersServiceImpl implements CatalanNumbersService {
     @Override

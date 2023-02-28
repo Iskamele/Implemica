@@ -1,9 +1,9 @@
-package Tests.CorrectBracketExpression.impl;
+package implemica.CorrectBracketExpression.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import Tests.CorrectBracketExpression.service.BracketCombinationsService;
+import implemica.CorrectBracketExpression.service.BracketCombinationsService;
 
 public class BracketCombinationsServiceImpl implements BracketCombinationsService {
     @Override

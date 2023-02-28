@@ -1,7 +1,7 @@
-package Tests.SumOfDigitsInFactorial.impl;
+package implemica.SumOfDigitsInFactorial.impl;
 
 import java.math.BigInteger;
-import Tests.SumOfDigitsInFactorial.service.DigitSum;
+import implemica.SumOfDigitsInFactorial.service.DigitSum;
 
 public class DigitSumImpl implements DigitSum {
     @Override

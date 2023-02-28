@@ -1,10 +1,10 @@
-package Tests.SumOfDigitsInFactorial;
+package implemica.SumOfDigitsInFactorial;
 
 import java.math.BigInteger;
-import Tests.SumOfDigitsInFactorial.impl.DigitSumImpl;
-import Tests.SumOfDigitsInFactorial.impl.FactorialImpl;
-import Tests.SumOfDigitsInFactorial.service.DigitSum;
-import Tests.SumOfDigitsInFactorial.service.Factorial;
+import implemica.SumOfDigitsInFactorial.impl.DigitSumImpl;
+import implemica.SumOfDigitsInFactorial.impl.FactorialImpl;
+import implemica.SumOfDigitsInFactorial.service.DigitSum;
+import implemica.SumOfDigitsInFactorial.service.Factorial;
 
 public class Main {
 

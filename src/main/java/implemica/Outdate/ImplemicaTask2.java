@@ -1,4 +1,4 @@
-package Tests;
+package implemica.Outdate;
 
 import java.util.HashMap;
 import java.util.Scanner;

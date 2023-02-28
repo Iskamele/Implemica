@@ -1,8 +1,8 @@
-package Tests.CorrectBracketExpression.impl;
+package implemica.CorrectBracketExpression.impl;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import Tests.CorrectBracketExpression.service.InputService;
+import implemica.CorrectBracketExpression.service.InputService;
 
 public class InputServiceImpl implements InputService {
     private final Scanner scanner;

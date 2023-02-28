@@ -1,4 +1,4 @@
-package Tests.SumOfDigitsInFactorial.service;
+package implemica.SumOfDigitsInFactorial.service;
 
 import java.math.BigInteger;
 

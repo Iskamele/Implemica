@@ -1,12 +1,12 @@
-package Tests.CorrectBracketExpression;
+package implemica.CorrectBracketExpression;
 
 import java.util.List;
-import Tests.CorrectBracketExpression.impl.BracketCombinationsServiceImpl;
-import Tests.CorrectBracketExpression.impl.CatalanNumbersServiceImpl;
-import Tests.CorrectBracketExpression.impl.InputServiceImpl;
-import Tests.CorrectBracketExpression.service.BracketCombinationsService;
-import Tests.CorrectBracketExpression.service.CatalanNumbersService;
-import Tests.CorrectBracketExpression.service.InputService;
+import implemica.CorrectBracketExpression.impl.BracketCombinationsServiceImpl;
+import implemica.CorrectBracketExpression.impl.CatalanNumbersServiceImpl;
+import implemica.CorrectBracketExpression.impl.InputServiceImpl;
+import implemica.CorrectBracketExpression.service.BracketCombinationsService;
+import implemica.CorrectBracketExpression.service.CatalanNumbersService;
+import implemica.CorrectBracketExpression.service.InputService;
 
 public class Main {
 
