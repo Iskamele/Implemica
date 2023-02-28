@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.math.BigInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import Tests.SumOfDigitsInFactorial.impl.DigitSumImpl;
-import Tests.SumOfDigitsInFactorial.service.DigitSum;
+import implemica.SumOfDigitsInFactorial.impl.DigitSumImpl;
+import implemica.SumOfDigitsInFactorial.service.DigitSum;
 
 public class DigitSumImplTest {
     private DigitSum digitSum;

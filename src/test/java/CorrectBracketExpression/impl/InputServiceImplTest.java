@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.io.ByteArrayInputStream;
 import java.util.InputMismatchException;
 import org.junit.jupiter.api.Test;
-import Tests.CorrectBracketExpression.impl.InputServiceImpl;
-import Tests.CorrectBracketExpression.service.InputService;
+import implemica.CorrectBracketExpression.impl.InputServiceImpl;
+import implemica.CorrectBracketExpression.service.InputService;
 
 public class InputServiceImplTest {
     private static final String VALID_NUMBER = "10";

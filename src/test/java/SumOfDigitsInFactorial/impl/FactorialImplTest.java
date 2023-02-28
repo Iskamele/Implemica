@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.math.BigInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import Tests.SumOfDigitsInFactorial.impl.FactorialImpl;
-import Tests.SumOfDigitsInFactorial.service.Factorial;
+import implemica.SumOfDigitsInFactorial.impl.FactorialImpl;
+import implemica.SumOfDigitsInFactorial.service.Factorial;
 
 public class FactorialImplTest {
     private Factorial factorial;

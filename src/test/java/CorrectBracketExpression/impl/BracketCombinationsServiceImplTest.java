@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import Tests.CorrectBracketExpression.impl.BracketCombinationsServiceImpl;
+import implemica.CorrectBracketExpression.impl.BracketCombinationsServiceImpl;
 
 public class BracketCombinationsServiceImplTest {
     private BracketCombinationsServiceImpl bracketService;
