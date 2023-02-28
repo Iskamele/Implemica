@@ -1,4 +1,4 @@
-package Tests.Refactored;
+package Tests.Outdate;
 
 import java.util.Scanner;
 
