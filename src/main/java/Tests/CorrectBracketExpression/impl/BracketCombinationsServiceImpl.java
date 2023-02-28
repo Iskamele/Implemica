@@ -1,12 +1,16 @@
 package Tests.CorrectBracketExpression.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import Tests.CorrectBracketExpression.service.BracketCombinationsService;
 
 public class BracketCombinationsServiceImpl implements BracketCombinationsService {
     @Override
     public List<String> getCombinations(int number) {
+        if (number <= 0) {
+            return Collections.emptyList();
+        }
         List<String> result = new ArrayList<>();
         generateCombinations(result, "", 0, 0, number);
         return result;
