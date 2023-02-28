@@ -1,4 +1,4 @@
-package CorrectBracketExpression;
+package CorrectBracketExpression.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,8 +19,8 @@ public class InputServiceImplTest {
     @Test
     public void readInt_validInput() {
         //arrange
-        ByteArrayInputStream in = new ByteArrayInputStream(VALID_NUMBER.getBytes());
-        System.setIn(in);
+        ByteArrayInputStream input = new ByteArrayInputStream(VALID_NUMBER.getBytes());
+        System.setIn(input);
         inputService = new InputServiceImpl();
         int expected = Integer.parseInt(VALID_NUMBER);
 
@@ -34,8 +34,8 @@ public class InputServiceImplTest {
     @Test
     void readInt_invalidZeroInput() {
         //arrange
-        ByteArrayInputStream in = new ByteArrayInputStream(INVALID_ZERO_NUMBER.getBytes());
-        System.setIn(in);
+        ByteArrayInputStream input = new ByteArrayInputStream(INVALID_ZERO_NUMBER.getBytes());
+        System.setIn(input);
         inputService = new InputServiceImpl();
 
         //act & assert
@@ -46,8 +46,8 @@ public class InputServiceImplTest {
     @Test
     void readInt_invalidNegativeInput() {
         //arrange
-        ByteArrayInputStream in = new ByteArrayInputStream(INVALID_NEGATIVE_NUMBER.getBytes());
-        System.setIn(in);
+        ByteArrayInputStream input = new ByteArrayInputStream(INVALID_NEGATIVE_NUMBER.getBytes());
+        System.setIn(input);
         inputService = new InputServiceImpl();
 
         //act & assert
@@ -58,8 +58,8 @@ public class InputServiceImplTest {
     @Test
     void readInt_InvalidTypeInput() {
         //arrange
-        ByteArrayInputStream in = new ByteArrayInputStream(INVALID_NUMBER_TYPE.getBytes());
-        System.setIn(in);
+        ByteArrayInputStream input = new ByteArrayInputStream(INVALID_NUMBER_TYPE.getBytes());
+        System.setIn(input);
         inputService = new InputServiceImpl();
 
         //act & assert

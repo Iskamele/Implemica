@@ -1,4 +1,4 @@
-package CorrectBracketExpression;
+package CorrectBracketExpression.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,12 +20,12 @@ public class BracketCombinationsServiceImplTest {
     @Test
     void getCombinations_inputOne() {
         //arrange
-        int test_data = 1;
+        int input = 1;
         List<String> expected = new ArrayList<>();
         expected.add("()");
 
         //act
-        List<String> actual = bracketService.getCombinations(test_data);
+        List<String> actual = bracketService.getCombinations(input);
 
         //assert
         assertEquals(expected, actual);
@@ -34,13 +34,13 @@ public class BracketCombinationsServiceImplTest {
     @Test
     void getCombinations_inputTwo() {
         //arrange
-        int test_data = 2;
+        int input = 2;
         List<String> expected = new ArrayList<>();
         expected.add("(())");
         expected.add("()()");
 
         //act
-        List<String> actual = bracketService.getCombinations(test_data);
+        List<String> actual = bracketService.getCombinations(input);
 
         //assert
         assertEquals(expected, actual);
@@ -49,7 +49,7 @@ public class BracketCombinationsServiceImplTest {
     @Test
     void getCombinations_inputThree() {
         //arrange
-        int test_data = 3;
+        int input = 3;
         List<String> expected = new ArrayList<>();
         expected.add("((()))");
         expected.add("(()())");
@@ -58,7 +58,7 @@ public class BracketCombinationsServiceImplTest {
         expected.add("()()()");
 
         //act
-        List<String> actual = bracketService.getCombinations(test_data);
+        List<String> actual = bracketService.getCombinations(input);
 
         //assert
         assertEquals(expected, actual);
@@ -67,11 +67,11 @@ public class BracketCombinationsServiceImplTest {
     @Test
     void getCombinations_inputZero() {
         //arrange
-        int test_data = 0;
+        int input = 0;
         List<String> expected = Collections.emptyList();
 
         //act
-        List<String> actual = bracketService.getCombinations(test_data);
+        List<String> actual = bracketService.getCombinations(input);
 
         //assert
         assertEquals(expected, actual);
@@ -80,11 +80,11 @@ public class BracketCombinationsServiceImplTest {
     @Test
     void getCombinations_inputNegativeNumber() {
         //arrange
-        int test_data = -19;
+        int input = -19;
         List<String> expected = Collections.emptyList();
 
         //act
-        List<String> actual = bracketService.getCombinations(test_data);
+        List<String> actual = bracketService.getCombinations(input);
 
         //assert
         assertEquals(expected, actual);

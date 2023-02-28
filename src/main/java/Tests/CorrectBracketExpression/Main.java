@@ -9,6 +9,7 @@ import Tests.CorrectBracketExpression.service.CatalanNumbersService;
 import Tests.CorrectBracketExpression.service.InputService;
 
 public class Main {
+
     public static void main(String[] args) {
         InputService inputService = new InputServiceImpl();
         BracketCombinationsService combinationsService = new BracketCombinationsServiceImpl();
