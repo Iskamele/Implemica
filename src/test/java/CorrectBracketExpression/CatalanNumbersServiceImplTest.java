@@ -2,11 +2,17 @@ package CorrectBracketExpression;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import Tests.CorrectBracketExpression.impl.CatalanNumbersServiceImpl;
 
 public class CatalanNumbersServiceImplTest {
-    private final CatalanNumbersServiceImpl catalanNumbersService = new CatalanNumbersServiceImpl();
+    private CatalanNumbersServiceImpl catalanNumbersService;
+
+    @BeforeEach
+    void setUp() {
+        catalanNumbersService = new CatalanNumbersServiceImpl();
+    }
 
     @Test
     public void getNumber_inputZero() {
