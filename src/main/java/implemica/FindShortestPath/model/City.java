@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class City {
-    private int id = 0;
-    private String name;
-    private Map<Integer, Integer> neighbors;
+    private final int id;
+    private final String name;
+    private final Map<Integer, Integer> neighbors;
 
     public City(int id, String name) {
         this.id = id;
@@ -14,24 +14,8 @@ public class City {
         neighbors = new HashMap<>();
     }
 
-    public City() {
-        neighbors = new HashMap<>();
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void addNeighbor(Integer neighborId, int cost) {
-        neighbors.put(neighborId, cost);
     }
 
     public String getName() {
@@ -40,6 +24,10 @@ public class City {
 
     public Map<Integer, Integer> getNeighbors() {
         return neighbors;
+    }
+
+    public void addNeighbor(Integer neighborId, int cost) {
+        neighbors.put(neighborId, cost);
     }
 
     @Override
