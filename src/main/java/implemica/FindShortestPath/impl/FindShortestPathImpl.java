@@ -1,5 +1,6 @@
 package implemica.FindShortestPath.impl;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -9,14 +10,13 @@ import implemica.FindShortestPath.service.FindShortestPath;
 import implemica.FindShortestPath.storage.CitiesStorage;
 
 public class FindShortestPathImpl implements FindShortestPath {
+    static int INF = 200000;
+
     @Override
     public int findShortestPath(City from, City to) {
         Map<City, Integer> distances = new HashMap<>();
         Set<City> unvisited = new HashSet<>(CitiesStorage.getCities());
-        Map<City, City> previous = new HashMap<>();
-        for (City city : CitiesStorage.getCities()) {
-            distances.put(city, Integer.MAX_VALUE);
-        }
+        CitiesStorage.getCities().forEach(city -> distances.put(city, INF));
         distances.put(from, 0);
         while (!unvisited.isEmpty()) {
             City current = getClosestCity(distances, unvisited);
@@ -29,7 +29,6 @@ public class FindShortestPathImpl implements FindShortestPath {
                 int distanceThroughCurrent = distances.get(current) + neighborEntry.getValue();
                 if (distanceThroughCurrent < distances.get(neighbor)) {
                     distances.put(neighbor, distanceThroughCurrent);
-                    previous.put(neighbor, current);
                 }
             }
         }
@@ -37,15 +36,8 @@ public class FindShortestPathImpl implements FindShortestPath {
     }
 
     private City getClosestCity(Map<City, Integer> distances, Set<City> unvisited) {
-        int minDistance = Integer.MAX_VALUE;
-        City closestCity = null;
-        for (City city : unvisited) {
-            int distance = distances.get(city);
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestCity = city;
-            }
-        }
-        return closestCity;
+        return unvisited.stream()
+                .min(Comparator.comparingInt(distances::get))
+                .orElse(null);
     }
 }
