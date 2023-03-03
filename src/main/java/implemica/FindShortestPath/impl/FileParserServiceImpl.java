@@ -40,7 +40,7 @@ public class FileParserServiceImpl implements FileParserService {
             int currentCityNeighbors = Integer.parseInt(input.get(i + 1));
             List<String> currentCityRoad = input.subList(i + 2, i + currentCityNeighbors + 2);
             neighborsMap.put(cityId, currentCityRoad);
-            CitiesStorage.addCityToStorage(new City(cityId++, cityName));
+            CitiesStorage.addCity(new City(cityId++, cityName));
             countCity--;
             i += currentCityNeighbors + 2;
         }

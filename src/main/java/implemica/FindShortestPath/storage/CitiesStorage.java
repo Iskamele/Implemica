@@ -11,13 +11,22 @@ public class CitiesStorage {
         return cities;
     }
 
-    public static void addCityToStorage(City city) {
+    public static void addCity(City city) {
         cities.add(city);
     }
 
     public static City getCityByName(String cityName) {
         for (City city : cities) {
             if (city.getName().equals(cityName)) {
+                return city;
+            }
+        }
+        return null; // TODO throw an exception if city not found
+    }
+
+    public static City getCityById(String cityId) {
+        for (City city : cities) {
+            if (city.getName().equals(cityId)) {
                 return city;
             }
         }
