@@ -53,7 +53,8 @@ public class FileParserServiceImpl implements FileParserService {
                 String[] cityIdAndCost = value.split(" ");
                 int neighborId = Integer.parseInt(cityIdAndCost[0]);
                 int neighborCost = Integer.parseInt(cityIdAndCost[1]);
-                CitiesStorage.getCities().get(entry.getKey() - 1).addNeighbor(neighborId, neighborCost);
+                City neighbor = CitiesStorage.getCityById(neighborId);
+                CitiesStorage.getCities().get(entry.getKey() - 1).addNeighbor(neighbor, neighborCost);
             }
         }
     }

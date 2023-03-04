@@ -24,8 +24,8 @@ public class FindShortestPathImpl implements FindShortestPath {
             if (current == to) {
                 break;
             }
-            for (Map.Entry<Integer, Integer> neighborEntry : current.getNeighbors().entrySet()) {
-                City neighbor = CitiesStorage.getCities().get(neighborEntry.getKey() - 1);
+            for (Map.Entry<City, Integer> neighborEntry : current.getNeighbors().entrySet()) {
+                City neighbor = neighborEntry.getKey();
                 int distanceThroughCurrent = distances.get(current) + neighborEntry.getValue();
                 if (distanceThroughCurrent < distances.get(neighbor)) {
                     distances.put(neighbor, distanceThroughCurrent);
