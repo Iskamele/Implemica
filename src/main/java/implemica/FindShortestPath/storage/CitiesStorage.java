@@ -24,9 +24,9 @@ public class CitiesStorage {
         return null; // TODO throw an exception if city not found
     }
 
-    public static City getCityById(String cityId) {
+    public static City getCityById(int cityId) {
         for (City city : cities) {
-            if (city.getName().equals(cityId)) {
+            if (city.getId() == cityId) {
                 return city;
             }
         }
