@@ -2,11 +2,12 @@ package implemica.FindShortestPath.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class City {
     private final int id;
     private final String name;
-    private final Map<Integer, Integer> neighbors;
+    private final Map<City, Integer> neighbors;
 
     public City(int id, String name) {
         this.id = id;
@@ -22,20 +23,20 @@ public class City {
         return name;
     }
 
-    public Map<Integer, Integer> getNeighbors() {
+    public Map<City, Integer> getNeighbors() {
         return neighbors;
     }
 
-    public void addNeighbor(Integer neighborId, int cost) {
-        neighbors.put(neighborId, cost);
+    public void addNeighbor(City neighbor, int cost) {
+        neighbors.put(neighbor, cost);
     }
 
     @Override
     public String toString() {
-        return "City ["
-                + "name: " + name
-                + ", id: " + id
-                + ", neighbors id=cost: " + neighbors
-                + "]";
+        return "City: id = " + id + ", name = " + name + ", neighbors = {"
+                + neighbors.entrySet().stream()
+                .map(e -> e.getKey().getName() + ": " + e.getValue())
+                .collect(Collectors.joining(", "))
+                + "}";
     }
 }
