@@ -1,22 +1,20 @@
 package implemica.FindShortestPath.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Test {
-    private static int number;
+    private int number;
     private final List<City> cities;
-    private final Map<City, City> routes;
+    private final List<Route> routes;
 
     public Test() {
         cities = new ArrayList<>();
-        routes = new HashMap<>();
+        routes = new ArrayList<>();
     }
 
     public void setNumber(int number) {
-        Test.number = number;
+        this.number = number;
     }
 
     public int getNumber() {
@@ -37,7 +35,7 @@ public class Test {
                 return city;
             }
         }
-        return null; // TODO throw an exception if city not found
+        throw new RuntimeException("City by NAME not found.");
     }
 
     public City getCityById(int cityId) {
@@ -46,14 +44,15 @@ public class Test {
                 return city;
             }
         }
-        return null; // TODO throw an exception if city not found
+        throw new RuntimeException("City by ID not found.");
     }
 
     public void addRoute(City from, City to) {
-        routes.put(from, to);
+        Route route = new Route(from, to);
+        routes.add(route);
     }
 
-    public Map<City, City> getRoutes() {
+    public List<Route> getRoutes() {
         return routes;
     }
 }
