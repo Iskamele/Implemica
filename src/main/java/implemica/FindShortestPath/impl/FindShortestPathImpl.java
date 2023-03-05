@@ -6,17 +6,17 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import implemica.FindShortestPath.model.City;
+import implemica.FindShortestPath.model.Test;
 import implemica.FindShortestPath.service.FindShortestPath;
-import implemica.FindShortestPath.storage.CitiesStorage;
 
 public class FindShortestPathImpl implements FindShortestPath {
-    static int INF = 200000;
+    private static final int INF = 200000;
 
     @Override
-    public int findShortestPath(City from, City to) {
+    public int findShortestPath(Test test, City from, City to) {
         Map<City, Integer> distances = new HashMap<>();
-        Set<City> unvisited = new HashSet<>(CitiesStorage.getCities());
-        CitiesStorage.getCities().forEach(city -> distances.put(city, INF));
+        Set<City> unvisited = new HashSet<>(test.getCities());
+        test.getCities().forEach(city -> distances.put(city, INF));
         distances.put(from, 0);
         while (!unvisited.isEmpty()) {
             City current = getClosestCity(distances, unvisited);
