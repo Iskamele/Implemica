@@ -1,7 +1,8 @@
 package implemica.FindShortestPath.service;
 
 import java.util.List;
+import implemica.FindShortestPath.model.Test;
 
 public interface FileParserService {
-    void parseInput(List<String> input);
+    List<Test> parseInput(List<String> input);
 }
