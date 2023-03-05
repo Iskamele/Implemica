@@ -12,6 +12,7 @@ import implemica.FindShortestPath.service.FileParserService;
 public class FileParserServiceImpl implements FileParserService {
     private static final int TESTS_COUNT_INDEX = 0;
     private static final int START_LINE_INDEX = 1;
+    private static final String DATA_REGEX = " ";
     private int processedLines = START_LINE_INDEX;
     private int testIndex = 1;
     private final Map<Integer, List<String>> neighborsMap = new HashMap<>();
@@ -50,7 +51,7 @@ public class FileParserServiceImpl implements FileParserService {
     private void addNeighbors(Test test) {
         for (Map.Entry<Integer, List<String>> entry : neighborsMap.entrySet()) {
             for (String value : entry.getValue()) {
-                String[] cityIdAndCost = value.split(" ");
+                String[] cityIdAndCost = value.split(DATA_REGEX);
                 int neighborId = Integer.parseInt(cityIdAndCost[0]);
                 int neighborCost = Integer.parseInt(cityIdAndCost[1]);
                 City neighbor = test.getCityById(neighborId);
@@ -63,7 +64,7 @@ public class FileParserServiceImpl implements FileParserService {
         int routesStartLine = processedLines + 1;
         int routesCount = Integer.parseInt(input.get(processedLines));
         for (int i = routesStartLine; i < routesStartLine + routesCount; i++) {
-            String[] cities = input.get(i).split(" ");
+            String[] cities = input.get(i).split(DATA_REGEX);
             City cityFrom = test.getCityByName(cities[0]);
             City cityTo = test.getCityByName(cities[1]);
             test.addRoute(cityFrom, cityTo);
