@@ -1,0 +1,80 @@
+3
+4
+gdansk
+2
+2 1
+3 3
+bydgoszcz
+3
+1 1
+3 1
+4 4
+torun
+3
+1 3
+2 1
+4 1
+warszawa
+2
+2 4
+3 1
+2
+gdansk warszawa
+bydgoszcz warszawa
+4
+kiyv
+2
+2 3
+3 3
+lviv
+3
+1 3
+3 8
+4 10
+kharkiv
+3
+1 3
+2 8
+4 4
+donetsk
+2
+2 10
+3 4
+2
+kiyv donetsk
+kharkiv lviv
+6
+riga
+3
+2 1
+4 8
+6 4
+daugavpils
+4
+1 1
+3 2
+4 3
+6 2
+jelgava
+3
+2 2
+5 2
+6 2
+jūrmala
+2
+2 3
+5 5
+liepāja
+2
+3 2
+4 5
+ventspils
+3
+1 4
+2 2
+3 2
+4
+riga jelgava
+riga liepāja
+riga ventspils
+daugavpils liepāja
