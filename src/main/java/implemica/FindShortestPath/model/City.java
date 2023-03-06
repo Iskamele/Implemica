@@ -2,7 +2,6 @@ package implemica.FindShortestPath.model;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class City {
     private final int id;
@@ -29,14 +28,5 @@ public class City {
 
     public void addNeighbor(City neighbor, int cost) {
         neighbors.put(neighbor, cost);
-    }
-
-    @Override
-    public String toString() {
-        return "City: id = " + id + ", name = " + name + ", neighbors = {"
-                + neighbors.entrySet().stream()
-                .map(e -> e.getKey().getName() + ": " + e.getValue())
-                .collect(Collectors.joining(", "))
-                + "}";
     }
 }
