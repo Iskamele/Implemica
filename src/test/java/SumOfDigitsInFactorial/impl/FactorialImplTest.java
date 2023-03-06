@@ -22,8 +22,10 @@ public class FactorialImplTest {
         //arrange
         int input = 0;
         BigInteger expected = BigInteger.ONE;
+
         //act
         BigInteger actual = factorial.calculateFactorial(input);
+
         //assert
         assertEquals(expected, actual, "Factorial of " + input + " should be " + expected);
     }
