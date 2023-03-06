@@ -24,7 +24,7 @@ public class FileParserServiceImpl implements FileParserService {
     public List<Test> parseInput(List<String> input) {
         int testsNumber = Integer.parseInt(input.get(TESTS_COUNT_INDEX));
         if (testsNumber > MAX_TESTS) {
-            throw new RuntimeException("The number of tests must be <= " + MAX_TESTS);
+            throw new IllegalArgumentException("The number of tests must be <= " + MAX_TESTS);
         }
         return IntStream.range(0, testsNumber)
                 .mapToObj(i -> createTest(input))
@@ -44,7 +44,7 @@ public class FileParserServiceImpl implements FileParserService {
     private void addCities(List<String> input, Test test) {
         int countCities = Integer.parseInt(input.get(processedLines++));
         if (countCities > MAX_CITIES) {
-            throw new RuntimeException("The number of cities must be <= " + MAX_CITIES);
+            throw new IllegalArgumentException("The number of cities must be <= " + MAX_CITIES);
         }
         int cityId = 1;
         while (countCities-- > 0 && processedLines < input.size()) {
@@ -74,7 +74,7 @@ public class FileParserServiceImpl implements FileParserService {
         int routesStartLine = processedLines + 1;
         int routesCount = Integer.parseInt(input.get(processedLines));
         if (routesCount > MAX_PATHS_TO_FIND) {
-            throw new RuntimeException("The number of paths to find  must be <= "
+            throw new IllegalArgumentException("The number of paths to find  must be <= "
                     + MAX_PATHS_TO_FIND);
         }
         for (int i = routesStartLine; i < routesStartLine + routesCount; i++) {
