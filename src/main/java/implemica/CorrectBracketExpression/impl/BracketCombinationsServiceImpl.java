@@ -6,6 +6,9 @@ import java.util.List;
 import implemica.CorrectBracketExpression.service.BracketCombinationsService;
 
 public class BracketCombinationsServiceImpl implements BracketCombinationsService {
+    // adding either an opening or a closing bracket to a current string based on the open and close counts,
+    // and calling itself recursively until the current string has a length of 2 * number,
+    // at which point it adds the current string to the result list
     @Override
     public List<String> getCombinations(int number) {
         if (number <= 0) {
