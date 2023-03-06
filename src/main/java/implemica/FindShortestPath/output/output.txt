@@ -1,0 +1,13 @@
+Test 1
+gdansk-warszawa: 3
+bydgoszcz-warszawa: 2
+
+Test 2
+kiyv-donetsk: 7
+kharkiv-lviv: 6
+
+Test 3
+riga-jelgava: 3
+riga-liepāja: 5
+riga-ventspils: 3
+daugavpils-liepāja: 4
