@@ -12,6 +12,7 @@ import implemica.FindShortestPath.service.FindShortestPath;
 public class FindShortestPathImpl implements FindShortestPath {
     private static final int INF = 200000;
 
+    // Dijkstra's algorithm
     @Override
     public int findShortestPath(Test test, City from, City to) {
         Map<City, Integer> distances = new HashMap<>();
@@ -35,6 +36,7 @@ public class FindShortestPathImpl implements FindShortestPath {
         return distances.get(to);
     }
 
+    // returns the city with the shortest distance from the starting city
     private City getClosestCity(Map<City, Integer> distances, Set<City> unvisited) {
         return unvisited.stream()
                 .min(Comparator.comparingInt(distances::get))

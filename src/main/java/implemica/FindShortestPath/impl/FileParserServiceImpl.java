@@ -20,6 +20,7 @@ public class FileParserServiceImpl implements FileParserService {
     private int testIndex = 1;
     private final Map<Integer, List<String>> neighborsMap = new HashMap<>();
 
+    // parsing the input and creates a list of Test object
     @Override
     public List<Test> parseInput(List<String> input) {
         int testsNumber = Integer.parseInt(input.get(TESTS_COUNT_INDEX));
@@ -31,6 +32,8 @@ public class FileParserServiceImpl implements FileParserService {
                 .collect(Collectors.toList());
     }
 
+    // creating a Test object by adding cities, neighbors, and routes
+    // we focus on processedLines, which will show how many lines we have already processed
     private Test createTest(List<String> input) {
         Test test = new Test();
         addCities(input, test);
@@ -41,6 +44,8 @@ public class FileParserServiceImpl implements FileParserService {
         return test;
     }
 
+    // adding cities to the test and populates the neighborsMap
+    // store data about neighbors in NeighborsMap in order to process them further
     private void addCities(List<String> input, Test test) {
         int countCities = Integer.parseInt(input.get(processedLines++));
         if (countCities > MAX_CITIES) {
@@ -58,6 +63,7 @@ public class FileParserServiceImpl implements FileParserService {
         }
     }
 
+    // adding neighbors to the cities
     private void addNeighbors(Test test) {
         for (Map.Entry<Integer, List<String>> entry : neighborsMap.entrySet()) {
             for (String value : entry.getValue()) {
@@ -70,6 +76,7 @@ public class FileParserServiceImpl implements FileParserService {
         }
     }
 
+    // adding routes to the test
     private void addRoutes(List<String> input, Test test) {
         int routesStartLine = processedLines + 1;
         int routesCount = Integer.parseInt(input.get(processedLines));
